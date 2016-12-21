@@ -1,0 +1,65 @@
+body{
+	font-family: 'Roboto';
+	background-color: rgba(0,0,0,0.1);
+}
+
+h1{
+	color: rgba(0,100,200,0.7);
+}
+
+main{
+	background-color: white;
+	padding: 10px;
+}
+
+article{
+	
+	padding: 20px;
+}
+
+nav{
+	font-size: 1.2em;
+	font-weight: bold;
+	background-color: rgba(0,100,200,0.5);
+	padding: 20px;
+}
+
+nav ul li{
+	display: inline;
+	padding: 10px;
+}
+
+nav ul li a{
+	color: white;
+}
+
+.error{
+	color: red;
+	font-size: 1.2em;
+}
+
+.material-icons{
+	margin-bottom: -10px;
+}
+
+/*home*/
+.image-item{
+	width: 80px;
+}
+
+.rating, .user-rating{
+	font-size: 1.2em;
+}
+
+.rating{
+	color: #FFD700;
+}
+
+/*details*/
+.movie-image{
+	width: 200px;
+}
+
+.movie-hd{
+	font-weight: bold;
+}

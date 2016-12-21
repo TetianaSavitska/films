@@ -1,0 +1,36 @@
+# brief client || Movies
+
+## Contexte
+Le client crée une startup : un site de recommandation de film, à vocation internationale. Il est en anglais uniquement. La monétisation se fera d'abord par la publicité, ensuite par un modèle freemium. 
+
+Il attend de vous un prototype le plus fonctionnel possible dans 5 jours. 
+
+## Concept
+Le concept, du point de vue de l'internaute, est le suivant : 
+L'internaute peut 
+	- consulter une liste de films, tous de bonne qualité
+	- rechercher (dans un premier temps) par mot-clef, par genre ou par date
+	- donner une note à un film
+	- créer un compte, se connecter/déconnecter, oublier son mot de passe
+	- ajouter/retirer des films à sa liste personnelle de films à voir (watchlist)
+	- partager une fiche de film, ou sa watchlist
+
+Le client veut de son côté pouvoir : 
+	- ajouter/modifier/supprimer des films de la base de données. Il a besoin d'une interface web.
+
+## Précisions sur les écrans côté internaute
+
+### Accueil
+- La page d'accueil affiche une liste de films, trié du meilleur au moins bon. La liste est paginée.
+- 2 formulaires au haut de la page permettent de rechercher par mot-clef, par genre de film ou de filtrer par date
+- Seuls les affiches de films sont présentées. Elles sont cliquables et mènent vers la page de détails.
+
+### Détails d'un film
+- Toutes les infos sur le film sont affichées
+- Un widget permettant de donner une note sur 10 (ie. style étoiles) (connectés seulement)
+- Un bouton permet d'ajouter/supprimer de sa watchlist (connectés seulement)
+- Un formulaire permet de partager par email le film (connectés seulement)
+
+### Watchlist
+- Un lien omniprésent permet d'afficher la watchlist (même présentation sous forme d'affiches que la page d'accueil). La liste est également paginée. Connectés seulement bien sûr. 
+
