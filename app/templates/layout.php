@@ -16,7 +16,8 @@
 			<li><a href="<?=BASE_URL?>" title="">Home</a></li>
 			<li><a href="<?=BASE_URL?>user/watchlist" title="">Watchlist</a></li>
 			<li><a href="<?=BASE_URL?>admin" title="">Admin</a></li>
-			<li><span class="icons"><i class="material-icons">person</i></span></li>
+			<li><a href="<?=BASE_URL?>subscribe"><span class="icons">Sign up</a></li>
+			<li><a href="<?=BASE_URL?>login"><span class="icons">Login<i class="material-icons">person</i></span></a></li>
 		</ul>
 </nav>
 <main class="container">

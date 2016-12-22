@@ -22,18 +22,44 @@
         <entry file="file://$PROJECT_DIR$/app/Model/Entity/Movie.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="332">
-              <caret line="259" column="0" lean-forward="false" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
+              <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Genre.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Genre.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/Entity/Genre.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="144" column="30" lean-forward="true" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovieManager.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Model/Manager/MovieManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-990">
+              <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+              <folding>
+                <marker date="1482415017121" expanded="true" signature="334:383" ph="SELECT * FRO... movies" />
+                <marker date="1482415017121" expanded="true" signature="680:711" ph="SELECT COUNT... movies" />
+                <marker date="1482415017121" expanded="true" signature="888:927" ph="SELECT * FRO... movies" />
+                <marker date="1482415017121" expanded="true" signature="1251:1494" ph="SELECT * FRO... movies" />
+                <marker date="1482415017121" expanded="true" signature="4190:4194" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,6 +71,8 @@
       <list>
         <option value="$PROJECT_DIR$/app/Model/Entity/Movie.php" />
         <option value="$PROJECT_DIR$/app/Model/Entity/Genre.php" />
+        <option value="$PROJECT_DIR$/app/Model/Entity/User.php" />
+        <option value="$PROJECT_DIR$/app/Model/Manager/MovieManager.php" />
       </list>
     </option>
   </component>
@@ -117,6 +145,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="films" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="films" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Manager" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -216,12 +266,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1482311450344</updated>
-      <workItem from="1482311452272" duration="889000" />
+      <workItem from="1482311452272" duration="2601000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="889000" />
+    <option name="totallyTimeSpent" value="2601000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="31" width="1368" height="587" extended-state="6" />
@@ -260,7 +310,7 @@
     <entry file="file://$PROJECT_DIR$/app/Model/Entity/Movie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
-          <caret line="259" column="0" lean-forward="false" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
+          <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -270,6 +320,28 @@
         <state relative-caret-position="105">
           <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="144" column="30" lean-forward="true" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Manager/MovieManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-990">
+          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <marker date="1482415017121" expanded="true" signature="334:383" ph="SELECT * FRO... movies" />
+            <marker date="1482415017121" expanded="true" signature="680:711" ph="SELECT COUNT... movies" />
+            <marker date="1482415017121" expanded="true" signature="888:927" ph="SELECT * FRO... movies" />
+            <marker date="1482415017121" expanded="true" signature="1251:1494" ph="SELECT * FRO... movies" />
+            <marker date="1482415017121" expanded="true" signature="4190:4194" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

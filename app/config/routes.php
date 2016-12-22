@@ -18,6 +18,9 @@
 		"/" => "home",
 		"/details" => "movieDetails",
 		"/user/watchlist" => "watchlist",
-		"/admin" => "adminHome"
+		"/admin" => "adminHome",
+		"/subscribe" => "register",
+		"/login" => "login",
+		"/logout" => "logout"
 		//...
 	];

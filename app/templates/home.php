@@ -1,4 +1,18 @@
+<?php
+	/*session_start();
 
+	if( empty($_SESSION['user']) ){
+		header("Location: connection.php");
+		die();
+	}*/
+
+	/*if( empty($_SESSION['user'])->getRole() != "admin" ){
+		header("Location: connection.php");
+		die();
+	}*/
+
+	
+?>
 <section>
 	<div class="col-md-4">
 		<form method="POST" accept-charset="utf-8" class="form-horizontal" >
@@ -46,8 +60,13 @@
 </section>
 
 <?php if ($movies != null){ ?>
+
+
 <table class="table">
-	<caption><h1>Movies</h1></caption>
+	<caption>
+		<h2>Movies</h2>
+		<p>Resulst #<?=$numPerPage*($currentPage-1)+1?> to #<?=$numPerPage*$currentPage +1?> from <?= $moviesCount ?> movies</p>
+	</caption>
 	<thead>
 		<tr>
 			<th colspan="2">Movie title</th>
@@ -70,6 +89,17 @@
 
 	</tbody>
 </table>
+
+<div class="pager">
+	<ul class="pagination">
+		<li class=<?=$currentPage != 1 ? "": "disabled"?>><a href="?page=<?=$currentPage -1 ?>">Previous</a></li>
+		<?php 
+		 for ($i=0; $i < ceil($moviesCount/$numPerPage); $i++) :?>
+			<li class=<?=$currentPage == $i+1 ? "active": ""?>><a href="?page=<?=$i+1?>" ><?=$i+1?></a></li>
+		<?php endfor; ?>
+		<li class=<?=$currentPage != ceil($moviesCount/$numPerPage)? "": "disabled"?> ><a href="?page=<?=$currentPage +1 ?>">Next</a></li>
+	</ul>
+</div>
 <?php } else{ ?>
 	<p>No rusults were found. </p>
 <?php }?>

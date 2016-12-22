@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-10 col-sm-offset-11">
+				<div class="col-sm-10 col-sm-offset-2">
 					<button type="submit" class="btn btn-info">Add</button>
 				</div>
 			</div>
@@ -90,14 +90,4 @@
 	<?php endforeach;?>	
 	</tbody>
 </table>
-<ul class="pager">
-		<li><a href="#">Previous</a></li>
-		<ul class="pagination">
-		  <li><a href="#">1</a></li>
-		  <li><a href="#">2</a></li>
-		  <li><a href="#">3</a></li>
-		  <li><a href="#">4</a></li>
-		  <li><a href="#">5</a></li>
-		</ul>
-	  <li><a href="#">Next</a></li>
-	</ul>
+
