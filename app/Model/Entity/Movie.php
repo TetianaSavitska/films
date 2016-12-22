@@ -106,6 +106,11 @@ class Movie
         return $this->cast;
     }
 
+     public function getSeparatedCast()
+    {
+        return str_replace(" /", ",", $this->cast);
+    }
+
     /**
      * @param mixed $cast
      */

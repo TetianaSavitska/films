@@ -12,22 +12,23 @@
 </head>
 <body>
 <nav class="nav nav-tabs nav-justified" role="tablist">
-		<ul>
+		<ul class="container">
 			<li><a href="<?=BASE_URL?>" title="">Home</a></li>
 			<li><a href="<?=BASE_URL?>user/watchlist" title="">Watchlist</a></li>
 			<li><a href="<?=BASE_URL?>admin" title="">Admin</a></li>
+			<li><span class="icons"><i class="material-icons">person</i></span></li>
 		</ul>
-	</nav>
+</nav>
 <main class="container">
-	<h1><?= $title ?></h1>
-	<article>
-	<?php include("app/templates/$page.php"); //le contenu ?>
+	<article class="main-article">
+		<h1 class="title"><?= $title ?></h1>
+		<?php include("app/templates/$page.php"); //le contenu ?>
 	</article>
 </main>
 
-<footer class="container">
+<footer>
 	<nav class="nav nav-tabs nav-justified" role="tablist">
-		<ul>
+		<ul class="container">
 			<li><a href="<?=BASE_URL?>" title="">Home</a></li>
 			<li><a href="<?=BASE_URL?>user/watchlist" title="">Watchlist</a></li>
 			<li><a href="<?=BASE_URL?>admin" title="">Admin</a></li>

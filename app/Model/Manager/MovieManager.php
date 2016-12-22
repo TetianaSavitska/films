@@ -86,7 +86,8 @@ class MovieManager
 				OR cast LIKE "%":word"%"
 				OR directors LIKE "%":word"%"
 				OR writers LIKE "%":word"%"
-				OR plot LIKE "%":word"%"';
+				OR plot LIKE "%":word"%"
+				ORDER BY rating DESC';
 
 		$dbh = Db::getDbh();
 
@@ -115,7 +116,8 @@ class MovieManager
 	public function findByYear($year)
 	{
 		$sql = 'SELECT * FROM movies 
-				WHERE year=:year ';
+				WHERE year=:year 
+				ORDER BY rating DESC';
 
 		$dbh = Db::getDbh();
 
@@ -129,13 +131,14 @@ class MovieManager
 
 	public function findByGenre($genre)
 	{
-		$sql = 'SELECT m.id, m.imdbId, m.title, m.year, m.rating, m.votes, g.id, g.name 
+		$sql = 'SELECT m.id, m.imdbId, m.title, m.year, m.rating, m.votes, g.name 
 				FROM movies m
 				INNER JOIN movies_genres mg
 				ON m.id = mg.movieId
 				INNER JOIN genres g
 				ON mg.genreId = g.id
-				WHERE g.id = :genre';
+				WHERE g.id = :genre
+				ORDER BY rating DESC';
 
 		$dbh = Db::getDbh();
 

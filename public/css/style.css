@@ -10,27 +10,37 @@ h1{
 main{
 	background-color: white;
 	padding: 10px;
+	min-height: 80vh;
 }
 
 article{
-	
 	padding: 20px;
 }
 
+.main-article{
+	background-color: white;
+}
+
 nav{
-	font-size: 1.2em;
+	font-size: 1.3em;
 	font-weight: bold;
 	background-color: rgba(0,100,200,0.5);
 	padding: 20px;
+	min-height: 10vh;
 }
 
 nav ul li{
 	display: inline;
-	padding: 10px;
+	padding: 10px 20px 10px 20px;
 }
 
 nav ul li a{
 	color: white;
+}
+
+.title{
+	border-bottom: 1px solid rgba(0,100,200,0.5);
+	padding-bottom: 5px;
 }
 
 .error{
@@ -38,8 +48,14 @@ nav ul li a{
 	font-size: 1.2em;
 }
 
+.icons{
+	padding: 10px;
+	padding-right: 50px;
+	cursor: pointer;
+}
+
 .material-icons{
-	margin-bottom: -10px;
+	vertical-align: middle !important;
 }
 
 /*home*/
@@ -60,6 +76,15 @@ nav ul li a{
 	width: 200px;
 }
 
+.movie-description{
+	padding: 20px;
+}
+
 .movie-hd{
 	font-weight: bold;
+}
+
+/*admin*/
+.admin-insert{
+	margin-top: 30px;
 }

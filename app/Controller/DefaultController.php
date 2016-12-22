@@ -11,39 +11,35 @@ class DefaultController
 	 */
 	public function home()
 	{
-		//show all sorted by rating
+		//show all movies sorted by rating
 		$movieManager = new \Model\Manager\MovieManager();
 		$movies = $movieManager->findAll();
-
-		//search by keyword
-		$moviesByKeyWord = null;
-		if( !empty($_POST) && isset($_POST['keyWord']) ){
-			$word = $_POST['keyWord'];
-			$moviesByKeyWord = $movieManager->findByKeyWord($word);
-		}
-
-		//search by a year
+		//get years from DB
 		$moviesYears = $movieManager->findYears();
-		$moviesByYear = null;
-		if( !empty($_POST) && isset($_POST['year'])){
-			$year = $_POST['year'];
-			$moviesByYear = $movieManager->findByYear($year);
-		}
-		
-		//search by genre
+		//get genres from DB
 		$genreManager = new \Model\Manager\GenreManager();
 		$genres = $genreManager->findAll();
-		$moviesByGenre = null;
-		if( !empty($_POST) && isset($_POST['genre'])){
-			$genre = $_POST['genre'];
-			$moviesByGenre = $movieManager->findByGenre($genre);
+		
+		if( !empty($_POST) ){
+			if( isset($_POST['keyWord']) ){
+			    //search by keyword
+				$word = $_POST['keyWord'];
+				$movies = $movieManager->findByKeyWord($word);
+			}elseif( isset($_POST['year']) ){
+			    //search by a year
+				$year = $_POST['year'];
+				$movies = $movieManager->findByYear($year);
+			}elseif( isset($_POST['genre']) ){
+			    //search by genre
+				$genre = $_POST['genre'];
+				$movies = $movieManager->findByGenre($genre);
+			}else{
+				$movies = null;
+			}
 		}
 
 		View::show("home.php", "Movie Rating", ['movies' => $movies, 
-												'moviesByKeyWord' => $moviesByKeyWord,
-												'moviesByYear' => $moviesByYear, 
 												'moviesYears' => $moviesYears,
-												'moviesByGenre' => $moviesByGenre, 
 												'genres' => $genres]);
 	}
 
