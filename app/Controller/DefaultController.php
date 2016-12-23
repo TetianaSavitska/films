@@ -65,7 +65,8 @@ class DefaultController
 			return $this->error404();
 		}
 
-		$watchlist = in_array($movie, $_SESSION['user'] ->getWatchlist());
+		$watchlist = true;
+		
 		if( isset($_GET['watchlist']) ){
 			$userManager = new \Model\Manager\UserManager(); 
 			if( $_GET['watchlist'] ){
@@ -182,7 +183,6 @@ class DefaultController
 
 			if( isset($_GET['remove']) ){
 				$movie = $movieManager->findOneById($_GET['id']);
-				var_dump($movie);
 				if( in_array( $movie, $_SESSION['user']->getWatchlist() ) ){
 					$userManager = new \Model\Manager\UserManager();
 					$userManager->removeFromWatchlist($_SESSION['user'], $movie);

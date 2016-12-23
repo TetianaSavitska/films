@@ -38,21 +38,19 @@
 			<p>
 				<span class="icons">
 					<span class="movie-hd"><?= !in_array($movie, $_SESSION['user'] ->getWatchlist()) ? "Add to" : "Remove from" ?> your watchlist: </span>
-					<a  href="<?=BASE_URL?>details?id=<?=$movie->getId()?>&watchlist=<?=$watchlist?>" name="watchlist">
-						<i class="material-icons">
-							<?= !in_array($movie, $_SESSION['user'] ->getWatchlist()) ? "bookmark" : "delete" ?>
-						</i>
+					<a  href="<?=BASE_URL?>details?id=<?=$movie->getId()?>&watchlist=<?=$watchlist?>" >
+						<i class="material-icons"><?=!in_array($movie, $_SESSION['user']->getWatchlist())? "bookmark" : "delete" ?></i>
 					</a>
 				</span>
 				<span class="icons">
 					<span class="movie-hd">Share: </span>
-					<a  href="<?=BASE_URL?>details?id=<?=$movie->getId()?>" name="share" title="Share" >
+					<a  href="<?=BASE_URL?>details?id=<?=$movie->getId()?>"  title="Share" >
 						<i class="material-icons">share</i>
 					</a>
 				</span>
 				<span class="icons">
 					<span class="movie-hd">Rate this movie: </span>
-					<a  href="<?=BASE_URL?>details?id=<?=$movie->getId()?>" name="rate" title="Rate" >
+					<a  href="<?=BASE_URL?>details?id=<?=$movie->getId()?>"  title="Rate" >
 						<i class="material-icons">star</i>
 					</a>
 				</span>
