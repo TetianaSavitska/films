@@ -1,12 +1,14 @@
 <h2>Watchlist</h2>
+<?php if( empty($movies) ) {?>
+	<p> You watchlist is empty, please add movies to your watchlist.</p>
+<?php }else{ ?>
 <table class="table">
-	<caption>table title and/or explanatory text</caption>
 	<thead>
 		<tr>
 			<th colspan="2">Movie title</th>
 			<th>IMDb Rating</th>
 			<th>Your rating</th>
-			<th>Add to watchlist</th>
+			<th>Remove from your watchlist</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -18,7 +20,13 @@
 			<td><a href="<?=BASE_URL?>details?id=<?=$movie->getId()?>"><?=$movie->getTitle()?> (<?=$movie->getYear()?>)</a></td>
 			<td><span><?= $movie->getRating()?></span><span class="rating"><i class="material-icons">star_rate</i></span></td>
 			<td><span class="user-rating"><i class="material-icons">star_rate</i></span></td>
-			<td><i class="material-icons">bookmark</i></td>
+			<td>
+				<a href="<?=BASE_URL?>user/watchlist?remove=true&id=<?=$movie->getId()?>">
+					<button title="Remove from watchlist">
+						<i class="material-icons">delete</i>
+					</button>
+				</a>
+			</td>
 		</tr>
 			
 
@@ -26,3 +34,4 @@
 
 	</tbody>
 </table>
+<?php } ?>

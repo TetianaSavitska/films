@@ -1,18 +1,4 @@
-<?php
-	/*session_start();
 
-	if( empty($_SESSION['user']) ){
-		header("Location: connection.php");
-		die();
-	}*/
-
-	/*if( empty($_SESSION['user'])->getRole() != "admin" ){
-		header("Location: connection.php");
-		die();
-	}*/
-
-	
-?>
 <section>
 	<div class="col-md-4">
 		<form method="POST" accept-charset="utf-8" class="form-horizontal" >
@@ -65,14 +51,20 @@
 <table class="table">
 	<caption>
 		<h2>Movies</h2>
+		<ul class="pagination">
+			<li class=<?=$currentPage != 1 ? "": "disabled"?>><a href="?page=<?=$currentPage -1 ?>">Previous</a></li>
+			<li class=<?=$currentPage != ceil($moviesCount/$numPerPage)? "": "disabled"?> ><a href="?page=<?=$currentPage +1 ?>">Next</a></li>
+		</ul>
 		<p>Resulst #<?=$numPerPage*($currentPage-1)+1?> to #<?=$numPerPage*$currentPage +1?> from <?= $moviesCount ?> movies</p>
 	</caption>
 	<thead>
 		<tr>
 			<th colspan="2">Movie title</th>
 			<th>IMDb Rating</th>
-			<th>Your rating</th>
-			<th>Add to a watchlist</th>
+			<?php if( !empty($_SESSION['user']) ) : ?>
+				<th>Your rating</th>
+				<th>Watchlist</th>
+			<?php endif; ?>
 		</tr>
 	</thead>
 	<tbody>
@@ -82,21 +74,23 @@
 				<td><img class="image-item" src="<?=BASE_URL?>public/posters/<?=$movie->getImdbId()?>.jpg" alt="<?=$movie->getImdbId()?>"></td>
 				<td><a href="<?=BASE_URL?>details?id=<?=$movie->getId()?>"><?=$movie->getTitle()?> (<?=$movie->getYear()?>)</a></td>
 				<td><span class="rating"><i class="material-icons">star</i></span><span><?= $movie->getRating()?></span></td>
-				<td><span class="user-rating icons" title="Rate"><i class="material-icons">star_rate</i></span></td>
-				<td><span class="icons" title="Add to your watchlist"><i class="material-icons">bookmark</i></span></td>
+				<?php if( !empty($_SESSION['user']) ) : ?>
+					<td><span class="user-rating icons" title="Rate"><i class="material-icons">star</i></span></td>
+					<td><span class="icons"><i class="material-icons">bookmark<?= !in_array($movie, $_SESSION['user'] ->getWatchlist()) ? "_border" : "" ?></i></span></td>
+				<?php endif; ?>
 			</tr>	
 		<?php endforeach;?>
 
 	</tbody>
 </table>
 
-<div class="pager">
+<div >
 	<ul class="pagination">
 		<li class=<?=$currentPage != 1 ? "": "disabled"?>><a href="?page=<?=$currentPage -1 ?>">Previous</a></li>
-		<?php 
+		<!--<?php 
 		 for ($i=0; $i < ceil($moviesCount/$numPerPage); $i++) :?>
 			<li class=<?=$currentPage == $i+1 ? "active": ""?>><a href="?page=<?=$i+1?>" ><?=$i+1?></a></li>
-		<?php endfor; ?>
+		<?php endfor; ?>-->
 		<li class=<?=$currentPage != ceil($moviesCount/$numPerPage)? "": "disabled"?> ><a href="?page=<?=$currentPage +1 ?>">Next</a></li>
 	</ul>
 </div>

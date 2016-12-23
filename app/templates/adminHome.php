@@ -82,8 +82,8 @@
 	
 		<tr class="movie-item">
 			<td><a href="<?=BASE_URL?>details?id=<?=$movie->getId()?>"><?=$movie->getTitle()?></a></td>
-			<td><button class="btn btn-info btn-sm"><i class="material-icons">mode_edit</i></button></td>
-			<td><button class="btn btn-danger btn-sm"><i class="material-icons">delete</i></button></td>
+			<td><button ><i class="material-icons">mode_edit</i></button></td>
+			<td><button ><i class="material-icons">delete</i></button></td>
 		</tr>
 			
 

@@ -20,7 +20,7 @@
         "require-dev": {
             "mikey179/vfsstream": "1.1.*"
         },
-        "time": "2015-03-20T14:31:23+00:00",
+        "time": "2015-03-20 14:31:23",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -71,7 +71,7 @@
             "mikey179/vfsstream": "^1.6",
             "phpunit/phpunit": "^4.8|^5.0"
         },
-        "time": "2016-09-07T15:52:06+00:00",
+        "time": "2016-09-07 15:52:06",
         "type": "library",
         "extra": {
             "branch-alias": {

@@ -21,6 +21,7 @@
 		}
 	});
 
+	session_start();
 	//le dispatcher trouve la correspondance entre nos routes et l'url
 	$p = (empty($_GET['p'])) ? "/" : $_GET['p'];
 	$dispatcher = new Controller\Dispatcher();

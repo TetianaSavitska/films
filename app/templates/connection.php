@@ -20,5 +20,8 @@
 				<button type="submit" class="btn btn-info">Login</button>
 			</div>
 		</div>
+		<div class="col-sm-10 col-sm-offset-2">
+			<p class="error"><?php if (isset($error)) echo $error; ?></p>
+		</div>
 	</fieldset>
 </form>

@@ -13,6 +13,7 @@ class User
 	private $role;
     private $token;
     private $dateRegistered;
+    private $watchlist = [];
 
 	private $errors = [];
 
@@ -189,8 +190,15 @@ class User
         $this->dateRegistred = $dateRegistered;
     }
 
-    
+    public function getWatchlist()
+    {
+        return $this->watchlist;
+    }
 
+    public function setWatchlist($watchlist)
+    {
+        $this->watchlist = $watchlist;
+    }
 	
 }
 

@@ -3,12 +3,11 @@
 namespace Model\Manager;
 
 use Model\Db;
-use Model\Entity\User;
 
 class UserManager
 {
 	//insert
-	public function insert(User $user)
+	public function insert(\Model\Entity\User $user)
 	{
 		$sql = "INSERT INTO users(username, password, email, role, token, dateRegistered) 
 				VALUES (:username, :password, :email, :role, :token, NOW());";
@@ -90,6 +89,24 @@ class UserManager
 		return $results;
 	}
 
+	public function addToWatchlist(\Model\Entity\User $user, \Model\Entity\Movie $movie)
+	{
+		$watchlist = $user->getWatchlist();
+		$watchlist[] = $movie;
+		$user->setWatchlist($watchlist);
+	}
+
+	public function removeFromWatchlist(\Model\Entity\User $user, \Model\Entity\Movie $movieToRemove)
+	{
+		$newWatchlist = [];
+		$watchlist = $user->getWatchlist();
+		foreach ($watchlist as $movie) {
+			if ( $movie != $movieToRemove ){
+				$newWatchlist[] = $movie;
+			}
+		}
+		$user->setWatchlist($newWatchlist);
+	}
 }
 
 ?>

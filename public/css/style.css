@@ -71,6 +71,14 @@ nav ul li a{
 	color: #FFD700;
 }
 
+.margin-right{
+	margin-right: 10px;
+}
+
+.center{
+	margin: auto;
+}
+
 /*details*/
 .movie-image{
 	width: 200px;

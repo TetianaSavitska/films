@@ -8,6 +8,6 @@
 	const DB_HOST = "localhost";
 	const DB_NAME = "movies";
 	const DB_USER = "root";
-	const DB_PASS = "imie";
+	const DB_PASS = "";
 
 	

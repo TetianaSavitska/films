@@ -71,7 +71,6 @@ class MovieManager
 				OR cast LIKE "%":word"%"
 				OR directors LIKE "%":word"%"
 				OR writers LIKE "%":word"%"
-				OR plot LIKE "%":word"%"
 				ORDER BY rating DESC
 				LIMIT '. $numPerPage .
 				' OFFSET '. $offset;
@@ -93,8 +92,7 @@ class MovieManager
 				OR year LIKE "%":word"%"
 				OR cast LIKE "%":word"%"
 				OR directors LIKE "%":word"%"
-				OR writers LIKE "%":word"%"
-				OR plot LIKE "%":word"%"';
+				OR writers LIKE "%":word"%"';
 
 		$dbh = Db::getDbh();
 
@@ -205,14 +203,14 @@ class MovieManager
 	/*//insert
 	public function insert(Movie $movie)
 	{
-		$sql = "INSERT INTO movies(title, content, dateCreated, image) 
-				VALUES (:title,:content, NOW(),:image);";
+		$sql = "INSERT INTO movies(imdbid, title, year, cast, directors, writers, plot, rating, votes, runtime, trailerUrl, dateCreated) 
+				VALUES (:imdbid, :title, :year, :cast, :directors, :writers, :plot, :rating, :votes, :runtime, :trailerUrl, NOW());";
 
 		$dbh = Db::getDbh();
 		$stmt = $dbh->prepare($sql);
 		$stmt->bindValue(":title", $movie->getTitle());
-		$stmt->bindValue(":content", $movie->getContent());
-		$stmt->bindValue(":image", $movie->getImage());	
+		...
+	
 			
 		return $stmt->execute();
 	}
@@ -232,13 +230,14 @@ class MovieManager
 	//update 
 	public function update($movie)
 	{
-		$sql = "UPDATE movies(imdbid, title, year, cast, directors, writers, plot, rating, votes, runtime, trailerUrl, dateCreated, dateModified) 
-				SET (:title,:content, NOW());";
+		$sql = "UPDATE movies(imdbid, title, year, cast, directors, writers, plot, rating, votes, runtime, trailerUrl, dateModified) 
+				SET (:imdbid, :title, :year, :cast, :directors, :writers, :plot, :rating, :votes, :runtime, :trailerUrl, NOW());";
 
 		$dbh = Db::getDbh();
 		$stmt = $dbh->prepare($sql);
 		$stmt->bindValue(":title", $movie->getTitle());
-		$stmt->bindValue(":content", $movie->getContent());
+		$stmt->bindValue(":plot", $movie->getPlot());
+		...
 		return $stmt->execute();
 	}*/
 }

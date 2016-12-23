@@ -57,13 +57,27 @@ class DefaultController
 
 	public function movieDetails()
 	{
+		$error = "";
 		$movieManager = new \Model\Manager\MovieManager();
 		$id = $_GET['id'];
 		$movie = $movieManager->findOneById($id);
 		if( empty($movie) ){
 			return $this->error404();
 		}
-		View::show("movieDetails.php", $movie -> getTitle() , ['movie' => $movie]);
+
+		$watchlist = in_array($movie, $_SESSION['user'] ->getWatchlist());
+		if( isset($_GET['watchlist']) ){
+			$userManager = new \Model\Manager\UserManager(); 
+			if( $_GET['watchlist'] ){
+				$userManager->addToWatchlist($_SESSION['user'], $movie);
+				$watchlist = false;
+			} else {
+				$userManager->removeFromWatchlist($_SESSION['user'], $movie);
+				$watchlist = true;
+			}
+		}
+		View::show("movieDetails.php", $movie -> getTitle() , ['movie' => $movie, 
+															   'watchlist' => $watchlist]);
 	}
 
 	public function register()
@@ -72,8 +86,6 @@ class DefaultController
 		$user = null;
 
 		//traitement du formulaire d'inscription
-		require('vendor/autoload.php');
-
 		if (!empty($_POST)){
 			$username = strip_tags($_POST['username']);
 			$email = strip_tags($_POST['email']);
@@ -105,30 +117,30 @@ class DefaultController
 					//appelle le UserManager pour requetes SQL
 					$userManager->insert($user);
 					//redirige sur l'accueil
-					View::show("connection.php", "Log in" , ['user' => $user]);
+					header("Location: ".BASE_URL."login");
 				}else{
 					$errors= $user->getErrors();
 					$error = $errors[0];
 				}
 			}
 		}
-		View::show("inscription.php", "Sign up", ['user' => $user,
-												  'error' => $error ] );
+		View::show("inscription.php", "Sign up", ['error' => $error ] );
 	}
 
 	public function login()
 	{
-		session_start();
 		$error=null;
 		//traitement du fformulaire de connection
 
 		//si le form est soumis...
 		if (!empty($_POST)){
 
-			$usernameOrEmail = $_POST['usernameOrEmail'];
 			//on va chercher le user en fonction du pseudo ou de l'email
+			$usernameOrEmail = $_POST['usernameOrEmail'];
 			$userManager = new \Model\Manager\UserManager();
+			//appelle le UserManager pour requetes SQL
 			$user = $userManager->findUser($usernameOrEmail);
+			var_dump($user);
 
 			//hache le mot de passe et le compare à celui de la bdd
 			if ( password_verify( $_POST['password'], $user->getPassword() ) ){
@@ -146,31 +158,60 @@ class DefaultController
 				//on garde ça vague pour ne pas donner d'infos aux méchants
 				$error = "Not valid username or password!";
 			}
-
 		}
-		//appelle le UserManager pour requetes URL
 		View::show("connection.php", "Log in", ['error' => $error]);
 	}
 
 	public function logout()
 	{
 		//deconnection 
+		unset($_SESSION['user']); 
+
 		//redirection
-		View::show("deconnection.php", "Log out");
+		header("Location: ".BASE_URL);
 	}
 
 	public function watchlist()
 	{
-		$movieManager = new \Model\Manager\MovieManager();
-		$movies= $movieManager->findAll( 1 );
-		View::show("watchlist.php", "My watchlist" , ['movies' => $movies]);
+		//l'utilisateur n'est pas connecté
+		if ( !isset($_SESSION['user']) || empty($_SESSION['user']) ){
+			header("Location: ".BASE_URL."login");
+			die();
+		}else{	
+			$movieManager = new \Model\Manager\MovieManager();
+
+			if( isset($_GET['remove']) ){
+				$movie = $movieManager->findOneById($_GET['id']);
+				var_dump($movie);
+				if( in_array( $movie, $_SESSION['user']->getWatchlist() ) ){
+					$userManager = new \Model\Manager\UserManager();
+					$userManager->removeFromWatchlist($_SESSION['user'], $movie);
+				} else {
+					$error = "The movie is not in your watchlist";
+				}
+			}
+			$movies= $_SESSION['user']->getWatchlist();
+			
+			View::show("watchlist.php", "My watchlist" , ['movies' => $movies]);
+		}
 	}
 
 	public function adminHome()
 	{
-		$movieManager = new \Model\Manager\MovieManager();
-		$movies= $movieManager->findAll();
-		View::show("adminHome.php", "Admin" , ['movies' => $movies]);
+		//l'utilisateur n'est pas connecté
+		if ( !isset($_SESSION['user']) ) {
+			header("Location: ".BASE_URL."login");
+			die();
+		}else{
+			if( $_SESSION['user']->getRole() != "admin" ){
+				header("Location: ".BASE_URL);
+				die();
+			}else{
+				$movieManager = new \Model\Manager\MovieManager();
+				$movies= $movieManager->findAll();
+				View::show("adminHome.php", "Admin" , ['movies' => $movies]);
+			}
+		}
 	}
 
 
